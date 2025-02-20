@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="174dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:background="@drawable/bg_news"
+    android:orientation="vertical">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/iv_news"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/iv_image"
+        app:shapeAppearanceOverlay="@style/Rounded_5" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_name_news"
+            style="@style/Regular_10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/black_500"
+            tools:ignore="SmallSp"
+            tools:text="Name" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="5dp"
+            app:srcCompat="@drawable/dots" />
+
+        <TextView
+            android:id="@+id/tv_published_at"
+            style="@style/Regular_10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:textColor="@color/black_500"
+            tools:ignore="SmallSp"
+            tools:text="PublishedAt" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_title_news"
+        style="@style/Semibold_14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/black_500"
+        tools:ignore="SmallSp"
+        tools:text="Title" />
+    <TextView
+        android:id="@+id/tv_description_news"
+        style="@style/Regular_12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/black_500"
+        tools:ignore="SmallSp"
+        android:maxLines="1"
+        tools:text="Description" />
+
+    <TextView
+        android:id="@+id/tv_author_news"
+        style="@style/Regular_10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/black_500"
+        tools:ignore="SmallSp"
+        tools:text="Author" />
+
+
+</LinearLayout>
