@@ -63,14 +63,13 @@ class MainActivity : AppCompatActivity() {
                     binding.skeletonLoading.visibility = View.VISIBLE
                     binding.skeletonLoading.startShimmer()
                     binding.rvNews.visibility = View.GONE
-                    binding.searchBar.visibility = View.GONE
+
                 }
 
                 is BaseResponse.Success -> {
                     binding.skeletonLoading.visibility = View.GONE
                     binding.skeletonLoading.stopShimmer()
                     binding.rvNews.visibility = View.VISIBLE
-                    binding.searchBar.visibility = View.VISIBLE
 
 
                     adapter = NewsAdapter{data ->
@@ -101,7 +100,6 @@ class MainActivity : AppCompatActivity() {
                     binding.skeletonLoading.visibility = View.VISIBLE
                     binding.skeletonLoading.startShimmer()
                     binding.rvNews.visibility = View.GONE
-                    binding.searchBar.visibility = View.GONE
 
 
                     val builder = AlertDialog.Builder(this)

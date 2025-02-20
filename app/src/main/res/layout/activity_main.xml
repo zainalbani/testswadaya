@@ -62,7 +62,7 @@
         android:layout_marginHorizontal="16dp"
         android:hint="@string/searchbar_hint"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/coordinator_layout"
         app:layout_constraintTop_toBottomOf="@id/coordinator_layout"/>
 
     <com.google.android.material.search.SearchView
@@ -71,9 +71,10 @@
         android:layout_height="0dp"
         android:hint="@string/searchbar_hint"
         app:layout_anchor="@id/searchBar"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/coordinator_layout"
-        app:layout_constraintTop_toBottomOf="@id/coordinator_layout" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_news"
