@@ -11,11 +11,16 @@ import androidx.lifecycle.distinctUntilChanged
 import androidx.recyclerview.widget.GridLayoutManager
 import com.zain.newslistswadaya.adapter.NewsAdapter
 import com.zain.newslistswadaya.databinding.ActivityMainBinding
+import com.zain.newslistswadaya.local.AppDatabase
+import com.zain.newslistswadaya.local.SavedNewsEntity
 import com.zain.newslistswadaya.response.ArticlesItem
 import com.zain.newslistswadaya.response.BaseResponse
 import com.zain.newslistswadaya.utils.ArrangeItemsUtils
 import com.zain.newslistswadaya.viewmodel.NewsViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -31,6 +36,10 @@ class MainActivity : AppCompatActivity() {
 
         getNewsFetch()
         searchNewsFetch()
+        binding.ivSaved.setOnClickListener {
+            val intent = Intent(this, SavedNewsActivity::class.java)
+            startActivity(intent)
+        }
 
 
 
@@ -65,9 +74,12 @@ class MainActivity : AppCompatActivity() {
 
 
                     adapter = NewsAdapter{data ->
+
                         val intent = Intent(this, DetailActivity::class.java)
                         intent.putExtra("data", data)
                         startActivity(intent)
+
+
                     }
                     binding.rvNews.adapter = adapter
                     val layoutManager = GridLayoutManager(this, 2)

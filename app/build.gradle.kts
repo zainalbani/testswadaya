@@ -59,6 +59,8 @@ dependencies {
     implementation ("com.github.bumptech.glide:compiler:4.12.0")
     implementation("com.google.dagger:hilt-android:2.48")
     implementation ("com.facebook.shimmer:shimmer:0.5.0")
+    implementation ("androidx.room:room-runtime:2.5.2")
+    kapt ("androidx.room:room-compiler:2.5.2")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
