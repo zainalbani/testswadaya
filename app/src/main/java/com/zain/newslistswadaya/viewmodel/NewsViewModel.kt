@@ -44,7 +44,7 @@ class NewsViewModel @Inject constructor(
             }
 
             override fun onFailure(call: Call<GetNewsResponse>, t: Throwable) {
-                newsResult.value = BaseResponse.Error("Network Error")
+                newsResult.value = BaseResponse.Error(t.message)
             }
         })
     }
@@ -75,7 +75,7 @@ class NewsViewModel @Inject constructor(
             }
 
             override fun onFailure(call: Call<GetNewsResponse>, t: Throwable) {
-                searchResult.value = BaseResponse.Error("Network Error")
+                searchResult.value = BaseResponse.Error(t.message)
             }
         })
     }

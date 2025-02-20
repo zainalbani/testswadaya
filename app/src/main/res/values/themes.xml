@@ -7,6 +7,12 @@
 
     <style name="Theme.NewsListSwadaya" parent="Base.Theme.NewsListSwadaya" />
 
+    <style name="Regular_16">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textColor">@color/black_500</item>
+    </style>
+
     <style name="Regular_14">
         <item name="android:textSize">14sp</item>
         <item name="android:fontFamily">@font/poppins</item>
@@ -25,6 +31,12 @@
 
     <style name="Medium_10">
         <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textColor">@color/black_500</item>
+    </style>
+
+    <style name="Medium_16">
+        <item name="android:textSize">16sp</item>
         <item name="android:fontFamily">@font/poppins_medium</item>
         <item name="android:textColor">@color/black_500</item>
     </style>

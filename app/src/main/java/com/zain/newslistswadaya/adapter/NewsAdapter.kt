@@ -12,7 +12,7 @@ import com.zain.newslistswadaya.databinding.ItemListNewsSmallBinding
 import com.zain.newslistswadaya.response.ArticlesItem
 import com.zain.newslistswadaya.utils.DateFormatUtils
 
-class NewsAdapter() :
+class NewsAdapter(private val onClick: (ArticlesItem) -> Unit) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val differCallback = object : DiffUtil.ItemCallback<ArticlesItem>() {
@@ -49,6 +49,9 @@ class NewsAdapter() :
             Glide.with(itemView.context)
                 .load(item.urlToImage)
                 .into(binding.ivNews)
+            itemView.setOnClickListener {
+                onClick(item)
+            }
         }
     }
 
@@ -64,6 +67,10 @@ class NewsAdapter() :
             Glide.with(itemView.context)
                 .load(item.urlToImage)
                 .into(binding.ivNews)
+
+            itemView.setOnClickListener {
+                onClick(item)
+            }
         }
     }
 

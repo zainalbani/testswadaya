@@ -1,17 +1,14 @@
 package com.zain.newslistswadaya
 
 import android.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.distinctUntilChanged
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.zain.newslistswadaya.adapter.NewsAdapter
 import com.zain.newslistswadaya.databinding.ActivityMainBinding
 import com.zain.newslistswadaya.response.ArticlesItem
@@ -67,7 +64,11 @@ class MainActivity : AppCompatActivity() {
                     binding.searchBar.visibility = View.VISIBLE
 
 
-                    adapter = NewsAdapter()
+                    adapter = NewsAdapter{data ->
+                        val intent = Intent(this, DetailActivity::class.java)
+                        intent.putExtra("data", data)
+                        startActivity(intent)
+                    }
                     binding.rvNews.adapter = adapter
                     val layoutManager = GridLayoutManager(this, 2)
                     binding.rvNews.layoutManager = layoutManager
@@ -129,7 +130,11 @@ class MainActivity : AppCompatActivity() {
                     binding.searchBar.visibility = View.VISIBLE
 
 
-                    adapter = NewsAdapter()
+                    adapter = NewsAdapter{data ->
+                        val intent = Intent(this, DetailActivity::class.java)
+                        intent.putExtra("data", data)
+                        startActivity(intent)
+                    }
                     binding.rvNews.adapter = adapter
                     val layoutManager = GridLayoutManager(this, 2)
                     binding.rvNews.layoutManager = layoutManager
