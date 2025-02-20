@@ -27,7 +27,7 @@
 
         <TextView
             android:id="@+id/tv_name_news"
-            style="@style/Regular_10"
+            style="@style/Medium_10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -59,19 +59,24 @@
     <TextView
         android:id="@+id/tv_title_news"
         style="@style/Semibold_14"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="10dp"
         android:textColor="@color/black_500"
         tools:ignore="SmallSp"
+        android:maxLines="3"
+        android:justificationMode="inter_word"
         tools:text="Title" />
     <TextView
         android:id="@+id/tv_description_news"
         style="@style/Regular_12"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="10dp"
         android:textColor="@color/black_500"
+        android:justificationMode="inter_word"
         tools:ignore="SmallSp"
         android:maxLines="1"
         tools:text="Description" />

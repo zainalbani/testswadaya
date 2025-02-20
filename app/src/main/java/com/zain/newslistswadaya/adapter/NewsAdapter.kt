@@ -10,6 +10,7 @@ import com.bumptech.glide.Glide
 import com.zain.newslistswadaya.databinding.ItemListNewsBigBinding
 import com.zain.newslistswadaya.databinding.ItemListNewsSmallBinding
 import com.zain.newslistswadaya.response.ArticlesItem
+import com.zain.newslistswadaya.utils.DateFormatUtils
 
 class NewsAdapter() :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -44,7 +45,7 @@ class NewsAdapter() :
             binding.tvTitleNews.text = item.title
             binding.tvAuthorNews.text = item.author
             binding.tvDescriptionNews.text = item.description
-            binding.tvPublishedAt.text = item.publishedAt
+            binding.tvPublishedAt.text = item.publishedAt?.let { DateFormatUtils.formatDate(it) }
             Glide.with(itemView.context)
                 .load(item.urlToImage)
                 .into(binding.ivNews)
@@ -59,7 +60,7 @@ class NewsAdapter() :
             binding.tvTitleNews.text = item.title
             binding.tvAuthorNews.text = item.author
             binding.tvDescriptionNews.text = item.description
-            binding.tvPublishedAt.text = item.publishedAt
+            binding.tvPublishedAt.text = item.publishedAt?.let { DateFormatUtils.formatDate(it) }
             Glide.with(itemView.context)
                 .load(item.urlToImage)
                 .into(binding.ivNews)
