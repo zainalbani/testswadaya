@@ -14,4 +14,10 @@ interface ApiService {
         @Query("apiKey") apiKey: String = "da6e42d6cf704ed1ad501370e3fbcee3",
     ): Call<GetNewsResponse>
 
+    @GET("everything")
+    fun searchNews(
+        @Query("q")q: String,
+        @Query("apiKey") apiKey: String = "da6e42d6cf704ed1ad501370e3fbcee3",
+    ): Call<GetNewsResponse>
+
 }

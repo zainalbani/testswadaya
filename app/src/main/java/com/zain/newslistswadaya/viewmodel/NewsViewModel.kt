@@ -49,5 +49,36 @@ class NewsViewModel @Inject constructor(
         })
     }
 
+    val searchResult: MutableLiveData<BaseResponse<GetNewsResponse>> = MutableLiveData()
+
+    fun searchNews(q: String) {
+        searchResult.value = BaseResponse.Loading()
+        client.searchNews(q).enqueue(object : Callback<GetNewsResponse> {
+            override fun onResponse(
+                call: Call<GetNewsResponse>,
+                response: Response<GetNewsResponse>
+            ) {
+                if (response.isSuccessful) {
+                    val responseBody = response.body()
+                    searchResult.value = BaseResponse.Success(responseBody)
+                } else {
+                    val errorBody = response.errorBody()
+                    if (errorBody != null) {
+                        val errorResponse =
+                            Gson().fromJson(errorBody.charStream(), ErrorResponse::class.java)
+                        val errorMessage = errorResponse.message
+                        searchResult.value = BaseResponse.Error(errorMessage)
+                    } else {
+                        searchResult.value = BaseResponse.Error("Unknown error occurred")
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<GetNewsResponse>, t: Throwable) {
+                searchResult.value = BaseResponse.Error("Network Error")
+            }
+        })
+    }
+
 
 }
